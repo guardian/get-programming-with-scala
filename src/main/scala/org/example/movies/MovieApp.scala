@@ -11,8 +11,13 @@ object MovieApp extends App {
 
   // How many films are there in the dataset?
   // Use the printResult function in PrintResultHelpers.scala to do this
+  printResult("How many films are there in the dataset?", s"${movies.length}")
 
   // How many films were released in 1987?
+  if(movies.releaseDate.exists(releaseDate => releaseDate.getYear == 1987)) {
+
+  }
+  printResult("How many films were released in 1987?")
 
   // Let’s find the five films with the highest vote average and count.
   // However, you want to penalize those with a low vote count,
