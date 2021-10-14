@@ -22,6 +22,12 @@ object MovieApp extends App {
   // Let’s find the five films with the highest vote average and count.
   // However, you want to penalize those with a low vote count,
   // so discard all movies with less than 50 votes.
+  val filteredMovies = movies.filter(_.voteCount >= 50)
+  val result = filteredMovies.sortBy(movie => (- movie.voteAverage, - movie.voteCount)).take(5)
+  val newResult = result.map { movie =>
+    s"${movie.title}, ${movie.voteCount}, ${movie.voteAverage}\n"
+  }
+  printResult("Most popular movies", s"$newResult")
 
   // Let’s now compute a movie ranking per popularity and select the top five.
 
