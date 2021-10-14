@@ -14,10 +14,14 @@ object MovieApp extends App {
   printResult("How many films are there in the dataset?", s"${movies.length}")
 
   // How many films were released in 1987?
-  if(movies.releaseDate.exists(releaseDate => releaseDate.getYear == 1987)) {
+  val movies1987 = movies.count( movie =>
+    movie.releaseDate.exists(releaseDate => releaseDate.getYear == 1987)
+  )
 
-  }
-  printResult("How many films were released in 1987?")
+  val countFrom1987 = movies.count(
+    _.releaseDate.exists(_.getYear == 1987))
+
+  printResult("How many films were released in 1987?", s"$movies1987")
 
   // Let’s find the five films with the highest vote average and count.
   // However, you want to penalize those with a low vote count,
@@ -30,6 +34,12 @@ object MovieApp extends App {
   printResult("Most popular movies", s"$newResult")
 
   // Let’s now compute a movie ranking per popularity and select the top five.
+  val popularity = movies.sortBy(- _.popularity.getOrElse(0f)).take(5)
+  val popularityResult = popularity.map{ movie =>
+    s"${movie.title}, ${movie.popularity.getOrElse("unknown")}\n"
+  }
+
+  printResult("Most popular movies", s"$popularityResult")
 
   // Are there any movies that are not in English? Select 5 non-English movies.
 
