@@ -9,6 +9,7 @@ object MovieApp extends App {
 
   private val unknown = "--"
 
+  // DONE
   // How many films are there in the dataset?
   // 45463
   printResult(
@@ -19,6 +20,7 @@ object MovieApp extends App {
     }
   )
 
+  // DONE
   // How many films were released in 1987?
   // 462
   printResult(
@@ -30,6 +32,7 @@ object MovieApp extends App {
     }
   )
 
+  //DONE
   // Let’s find the five films with the highest vote average and count.
   // However, you want to penalize those with a low vote count,
   // so discard all movies with less than 50 votes.
@@ -53,6 +56,7 @@ object MovieApp extends App {
     }
   )
 
+  //DONE
   // Let’s now compute a movie ranking per popularity and select the top five.
   // - [POPULARITY: 547.4883] Minions
   //- [POPULARITY: 294.33704] Wonder Woman
