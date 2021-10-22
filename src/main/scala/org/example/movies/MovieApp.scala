@@ -42,6 +42,11 @@ object MovieApp extends App {
   printResult("Most popular movies", s"$popularityResult")
 
   // Are there any movies that are not in English? Select 5 non-English movies.
+  val languageResult = movies
+    .filterNot(_.originalLanguage == "en")
+    .take(5)
+    .map(movie => s"${movie.title} in ${movie.originalLanguage}")
+  printResult("first 5 non-english", languageResult)
 
   //find which movie the most profit.
   // Although profit is not a property in our movie data set,
